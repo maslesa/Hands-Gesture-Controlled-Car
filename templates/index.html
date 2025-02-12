@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands Gesture Controlled Car</title>
+    <link rel="icon" href="../static/logo.png">
+</head>
+<body>
+    <style>
+        body{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: white;
+            display: flex;
+            background-color: #27445D;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        .commands{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #command{
+            margin-top: 30px;
+        }
+        #camera{
+            width: 640px;
+            height: 480px;
+            border: 2px solid white;
+        }
+        .header{
+            margin-bottom: 60px;
+        }
+    </style>
+    
+    <div class="container">
+        <h1 class="header">Hands Gesture Controlled Car</h1>
+
+        <h3 class="commands">
+
+            <img id="camera" src="" alt="Video Feed">
+
+            <span id="command">
+                waiting for commands...
+            </span>
+        </h3>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('image', function(data) {
+            var img = document.getElementById('camera');
+            img.src = 'data:image/jpeg;base64,' + data.image;
+        });
+
+        socket.on('gesture', function(data) {
+            document.getElementById('command').innerText = data.command;
+        });
+    </script>
+
+</body>
+</html>
