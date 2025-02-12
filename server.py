@@ -33,7 +33,7 @@ def detect_hand_gesture():
         if results.multi_hand_landmarks:
             for hand_landmarks in results.multi_hand_landmarks:
 
-                # fingers lanmarks
+                # fingers landmarks
                 thumb_cmc = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_CMC]
                 thumb_mcp = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_MCP]
                 thumb_tip = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP]
