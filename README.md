@@ -1,32 +1,16 @@
-# Hands Gesture Controlled Car
+# 🚗 Hand Gesture Controlled Car with ESP32 & WebSockets
 
-## Overview
- - This project enables control of a car using hand gestures detected through a webcam. It utilizes:
- - Flask and Flask-SocketIO for real-time communication.
- - MediaPipe for hand gesture recognition.
- - OpenCV for video processing.
- - ESP32 to control the car's motors via WebSockets.
+This project allows you to control a car using hand gestures via MediaPipe on a Python Flask WebSocket server, which sends movement commands to an ESP32 microcontroller.
 
-## Features
- - Real-time hand gesture recognition.
- - Web-based interface for visual feedback.
- - WebSocket communication between the Flask server and ESP32.
- - Commands for controlling car movement (forward, backward, left, right, stop).
+## 📌 Features
 
-## Components
-1. Flask Server (Python)
- - Captures video from the webcam.
- - Uses MediaPipe to detect hand gestures.
- - Sends gesture-based commands to the ESP32 via WebSockets.
+ - 🖐 Hand Gesture Recognition using OpenCV & MediaPipe
 
-2. Web Interface (HTML, CSS, JavaScript)
- - Displays live video feed.
- - Shows detected gesture commands.
- - Communicates with the Flask backend via Socket.IO.
+ - 🌐 WebSocket Communication between Python server and ESP32
 
-3. ESP32 Firmware (Arduino)
- - Connects to Flask WebSocket server.
- - Interprets received commands and controls the car's motors accordingly.
+ - 🚗 Real-time Car Movement using an L298N motor driver
+
+ - 📡 WiFi Connectivity to link ESP32 with the server
 
 ## Hand Gesture Commands (right hand)
 | Gesture  | Action |
